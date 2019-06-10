@@ -1,5 +1,6 @@
 @import "variables";
 @import "text";
+@import "font";
 
 .content {
     position: absolute;
@@ -7,8 +8,17 @@
     left: 200px;
     padding: 20px;
     width: calc(100% - 240px);
+    text-align: left;
 
-    h1 {
-        margin: 0px;
+    .page {
+        h1 {
+            margin: 0px 0px 10px;
+        }
+
+        .pageheader { 
+            padding: 10px;
+            border-bottom: 1px solid #d7d7d7;
+            margin-bottom: 2rem!important;
+        }
     }
 }

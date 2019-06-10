@@ -4,7 +4,7 @@
             <h2>{{product.name}}</h2>
         </div>
         <ul class="proddetail text-base">
-            <li><span class="text-gray-800 font-medium">Price:</span> {{product.price}}</li>
+            <li><span class="text-gray-800 font-medium">Price:</span> {{product.price | currFormat}}</li>
             <li><span class="text-gray-800 font-medium">Quantity:</span> {{product.quantity}}</li>
             <li><span class="text-gray-800 font-medium">Available:</span> {{product.available}}</li>
         </ul>
@@ -14,7 +14,13 @@
 <script>
     export default {
         name: "product-item",
-        props: ["product"]
+        props: ["product"],
+
+        filters: {
+			currFormat(val){
+				return '$' + Number(val).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+			}
+		}
     }
 </script>
 
