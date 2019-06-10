@@ -67,6 +67,26 @@ export const products = {
             if(quantity >= 1){
                 commit('setFilteredProducts', state.filteredproducts.filter(prod => prod.quantity >= quantity))
             }
+        },
+
+        /*
+            Ordering products
+        */
+        orderProduct({ commit, state}, option){
+            commit('setFilteredProducts', 
+                    state.filteredproducts.sort( (a, b) => {
+                            if (a[option] > b[option]) {
+                                return 1
+                            }
+
+                            if (a[option] < b[option]) {
+                                return -1
+                            }
+
+                            return 0
+                        }
+                    )
+                )
         }
     },
 
