@@ -6,7 +6,9 @@ export const products = {
     */
     state: {
         products: [],
-        sublevelproducts: []
+        sublevelproducts: [],
+        filteredproducts: [],
+        resetfilters: false
     },
 
     /*
@@ -29,7 +31,42 @@ export const products = {
             Filter products by sublevel
         */
         filterProductsBySublevel({commit, state}, id){
-            commit('setSublevelProducts', state.products.products.filter(prod => prod.sublevel_id == id))
+            let products = state.products.products.filter(prod => prod.sublevel_id == id)
+
+            products.map( p => {
+                return Object.assign(p, { price : Number(p.price.replace("$", "").replace(",",""))})
+            })
+
+            commit('setSublevelProducts', products)
+            commit('setFilteredProducts', products)
+            commit('setResetFilters', true)
+        },
+
+        /*
+            Filter products by availability
+        */
+        filterProducts({ commit, state }, {all, available, pricefrom, priceto, quantity}){
+            commit('setResetFilters', false)
+            if(all && !available){
+                commit('setFilteredProducts', state.sublevelproducts)
+            }
+
+            if(available || !all && !available){
+                commit('setFilteredProducts', state.sublevelproducts)
+                commit('setFilteredProducts', state.filteredproducts.filter(prod => prod.available == available))
+            }
+
+            if(pricefrom >= 1){
+                commit('setFilteredProducts', state.filteredproducts.filter(prod => prod.price >= pricefrom))
+            }
+
+            if(priceto >= 1){
+                commit('setFilteredProducts', state.filteredproducts.filter(prod => prod.price <= priceto))
+            }
+
+            if(quantity >= 1){
+                commit('setFilteredProducts', state.filteredproducts.filter(prod => prod.quantity >= quantity))
+            }
         }
     },
 
@@ -49,6 +86,20 @@ export const products = {
         */
         setSublevelProducts(state, sublevelproducts) {
             state.sublevelproducts = sublevelproducts
+        },
+
+        /*
+            Set products filtered by availability
+        */
+        setFilteredProducts(state, filteredproducts) {
+            state.filteredproducts = filteredproducts
+        },
+
+        /*
+            Reset filters
+        */
+        setResetFilters(state, reset){
+            state.resetfilters = reset
         }
     },
 
@@ -68,6 +119,20 @@ export const products = {
         */
         getSublevelProducts(state) {
             return state.sublevelproducts
+        },
+
+        /*
+            Get filtered products by availability
+        */
+        getFilteredProducts(state) {
+            return state.filteredproducts
+        },
+
+        /*
+            Get filters reset status
+        */
+        getResetFilters(state){
+            return state.resetfilters
         }
     }
 }
