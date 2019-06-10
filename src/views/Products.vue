@@ -2,11 +2,19 @@
 	<div class="page">
 		<div class="pageheader">
 			<h1>Products</h1>
-			<span class="text-gray-800 font-medium">All</span> <input type="checkbox" v-model="filters.all" @change="checkAll(filters.all)"> | 
-			<span class="text-gray-800 font-medium">Available</span> <input type="checkbox" v-model="filters.available" @change="checkAval(filters.available)"> | 
-			<span class="text-gray-800 font-medium">Price from:</span>&nbsp;<input type="number" v-model="filters.pricefrom">&nbsp;
-			<span class="text-gray-800 font-medium">to:</span>&nbsp;<input type="number" v-model="filters.priceto"> | 
-			<span class="text-gray-800 font-medium">Quantity:</span>&nbsp;<input type="number" v-model="filters.quantity">
+			<div class="filters text-gray-800 font-medium">
+				All <input type="checkbox" v-model="filters.all" @change="checkAll(filters.all)"> | 
+				Available <input type="checkbox" v-model="filters.available" @change="checkAval(filters.available)"> | 
+				Price from: <input type="number" v-model="filters.pricefrom">
+				to: <input type="number" v-model="filters.priceto"> | 
+				Quantity: <input type="number" v-model="filters.quantity">
+				<div class="order">
+					Order By:
+					<select @change="handleOrder($event)">
+						<option v-for="(opt, index) in ordering" :key="index" :value="opt.value">{{opt.text}}</option>
+					</select>
+				</div>
+			</div>
 		</div>
 		<product-item v-for="prod in getFilteredProducts" :key="prod.id" :product="prod">
 		</product-item>
@@ -38,7 +46,22 @@
 					pricefrom: 0,
 					priceto: 0,
 					quantity: 0
-				}
+				},
+
+				ordering: [
+					{
+						value: 'price',
+						text: 'Price'
+					},
+					{
+						value: 'available',
+						text: 'Available'
+					},
+					{
+						value: 'quantity',
+						text: 'Quantity'
+					}
+				]
 			}
 		},
 		
@@ -67,7 +90,8 @@
 		methods: {
             ...mapActions([
 				'loadProducts',
-				'filterProducts'
+				'filterProducts',
+				'orderProduct'
 			]),
 
 			checkAll(all){
@@ -82,6 +106,10 @@
 				if(aval){
 					me.filters.all = false
 				}
+			},
+
+			handleOrder(event){
+				this.orderProduct(event.target.value)
 			}
         },
 
