@@ -5,4 +5,10 @@
     position: absolute;
     top: 53px;
     left: 200px;
+    padding: 20px;
+    width: calc(100% - 240px);
+
+    h1 {
+        margin: 0px;
+    }
 }

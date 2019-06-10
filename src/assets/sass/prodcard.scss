@@ -1,0 +1,28 @@
+@import "variables";
+@import "text";
+@import "utilities";
+@import "font";
+
+.prodcard {
+    text-align: left;
+    margin: 10px;
+    background-color: $cleancolor;
+
+    .prodheader {
+        text-align: center;
+        margin-bottom: 10px;
+        background-color: $primarycolor;
+        padding: 20px;
+
+        h2 {
+            margin: 0;
+            text-transform: uppercase;
+            color: $cleancolor;
+        }
+    }
+
+    .proddetail {
+        padding: 4px 10px;
+        list-style: none;
+    }
+}
