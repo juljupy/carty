@@ -13,6 +13,11 @@ export default new Router({
       component: () => import(/* webpackChunkName: "products" */ '@/views/Products.vue')
     },
     {
+      path: "/shoppingcart",
+      name: "shoppingcart",
+      component: () => import(/* webpackChunkName: "products" */ '@/views/ShoppingCart.vue')
+    },
+    {
       path: "/about",
       name: "about",
       // route level code-splitting

@@ -1,17 +1,12 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+	<div class="about">
+		<h1>Julio de Hoyos M.</h1>
+		<h2>Rappi Frontend Developer Challenge</h2>
+	</div>
 </template>
 
 <script>
-
-export default {
-  name: "home",
-  methods: {
-    click(){
-      console.log('clicking button....')
-    }
-  }
-};
+	export default {
+		name: "about"
+	};
 </script>

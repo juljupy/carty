@@ -1,0 +1,37 @@
+@import "variables";
+.badge {
+    background-color:$warningcolor;
+    color: $cleancolor; 
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    padding: 2px 4px;
+}
+
+.btn {
+    border: none;
+    padding: 4px 6px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.btn-primary {
+    background-color: $primarycolor;
+    color: $cleancolor;
+}
+
+
+.btn-danger {
+    background-color: $dangercolor;
+    color: $cleancolor;
+}
+
+.quant-input {
+    border: 1px solid $bordergray;
+    padding: 4px 6px;
+    margin-right: 4px;
+    width: 50px;
+}

@@ -1,0 +1,65 @@
+@import "variables";
+@import "text";
+@import "font";
+@import "utilities";
+@import "components";
+
+.dropdown {
+    display: inline-block;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    cursor: pointer;
+
+    .dropdownitem {
+        position: relative;
+        display: block;
+        top: 0px;
+        text-align: right;
+
+        svg {
+            padding: 6px;
+            &:hover {
+                background-color: $bggray;
+            }
+        }
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+        background-color: $cleancolor;
+        margin-top: 0px;
+        display: none;
+    }
+
+    ul li{
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 10px;
+        &:hover {
+            background-color: $bggray;
+        }
+        .item-title{
+            text-align: center;
+            text-transform: uppercase;
+
+            span {
+                background-color: $bggray;
+                padding: 0px 4px;
+                color: $cleancolor;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+.block {
+    display: block !important;
+}
