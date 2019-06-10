@@ -1,5 +1,5 @@
 <template>
-    <nav class="header">
+    <nav class="header shadow">
         <h2>{{ brand }}</h2>
     </nav>
 </template>
@@ -16,5 +16,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "@/assets/sass/header.scss"
+    @import "@/assets/sass/header.scss";
+    @import "@/assets/sass/_utilities.scss";
+
 </style>
