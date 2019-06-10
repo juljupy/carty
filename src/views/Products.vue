@@ -1,7 +1,7 @@
 <template>
 	<div class="page">
 		<div class="pageheader">
-			<h1>Products</h1>
+			<h1><font-awesome-icon icon="boxes"></font-awesome-icon> Products</h1>
 			<div class="filters text-gray-800 font-medium">
 				All <input type="checkbox" v-model="filters.all" @change="checkAll(filters.all)"> | 
 				Available <input type="checkbox" v-model="filters.available" @change="checkAval(filters.available)"> | 

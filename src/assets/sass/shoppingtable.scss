@@ -1,0 +1,29 @@
+@import "variables";
+@import "text";
+@import "components";
+@import "utilities";
+@import "components";
+
+table.shopping-table{
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+        text-align: center;
+        background-color: $primarycolor;
+        color: $cleancolor;
+    }
+
+    tr{
+        border-bottom: 1px solid $bordergray;
+    }
+
+    td{
+        padding: 10px;
+    }
+
+    tfoot th{
+        text-align: right;
+        padding: 10px 0px;
+    }
+}

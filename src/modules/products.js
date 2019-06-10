@@ -21,9 +21,27 @@ export const products = {
         loadProducts({
             commit
         }) {
+            const me = this
             axios.get('data/products.json')
                 .then(response => response)
-                .then(data => commit('setProducts', data.data))
+                .then(data => {
+                    let shoppingproducts = me.getters.getShoppingProducts
+
+                    let products = data.data.products.map( p => {
+                        return Object.assign(p, { 
+                            price : typeof(p.price) === 'string' ? Number(p.price.replace("$", "").replace(",","")) : p.price,
+                            quantity: parseInt(p.quantity)
+                        })
+                    })
+
+                    for (const item of shoppingproducts) {
+                        let pr = products.find( p => p.id == item.id)
+                        
+                        pr.quantity = pr.quantity - item.quantity
+                    }
+
+                    commit('setProducts', products)
+                })
                 .catch(error => console.log(error))
         },
 
@@ -31,11 +49,7 @@ export const products = {
             Filter products by sublevel
         */
         filterProductsBySublevel({commit, state}, id){
-            let products = state.products.products.filter(prod => prod.sublevel_id == id)
-
-            products.map( p => {
-                return Object.assign(p, { price : Number(p.price.replace("$", "").replace(",",""))})
-            })
+            let products = state.products.filter(prod => prod.sublevel_id == id)
 
             commit('setSublevelProducts', products)
             commit('setFilteredProducts', products)
