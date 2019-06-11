@@ -39,6 +39,9 @@
                 </tr>
             </tfoot>
         </table>
+        <div class="text-center">
+            <button @click="approvePay" class="btn btn-warning rounded text-xl font-medium btn-buy"><font-awesome-icon icon="check"></font-awesome-icon> Checkout</button>
+        </div>
     </div>
 </template>
 
@@ -56,7 +59,7 @@
         computed: {
             ...mapGetters(['getShoppingProducts']),
             totalcart(){
-                return this.getShoppingProducts.reduce( (a , b) => a + b.price, 0)
+                return this.getShoppingProducts.reduce( (a , b) => a + (b.price * b.quantity), 0)
             }
         },
 
@@ -96,6 +99,10 @@
             delProd(index){
                 const me = this
                 me.removeProduct(index)
+            },
+
+            approvePay(){
+                this.$router.push({ name: 'approvepay'})
             }
         }
     }

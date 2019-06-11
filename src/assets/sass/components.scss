@@ -23,6 +23,11 @@
     color: $cleancolor;
 }
 
+.btn-warning {
+    background-color: $warningcolor;
+    color: $cleancolor;
+}
+
 
 .btn-danger {
     background-color: $dangercolor;
@@ -34,4 +39,8 @@
     padding: 4px 6px;
     margin-right: 4px;
     width: 50px;
+}
+
+.btn-buy{
+    margin-top: 20px;
 }
