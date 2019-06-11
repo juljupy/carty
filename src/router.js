@@ -7,8 +7,14 @@ Vue.use(Router)
 export default new Router({
 	mode: "history",
 	base: process.env.BASE_URL,
-	routes: [{
+	routes: [
+		{
 			path: "/",
+			name: "welcome",
+			component: () => import( /* webpackChunkName: "products" */ '@/views/Welcome.vue')
+		},
+		{
+			path: "/products",
 			name: "products",
 			component: () => import( /* webpackChunkName: "products" */ '@/views/Products.vue')
 		},

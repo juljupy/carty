@@ -3,15 +3,15 @@
         <div class="sidebarheader"></div>
         <div class="menu">
             <span class="text-gray-500 menutitle">Navegación</span>
+            <!-- <router-link to="/">Home</router-link> -->
             <menu-item
-                v-for="(item, index) in getMenuitems.categories" 
+                v-for="(item, index) in getMenuitems" 
                 :key="index"
+                :to="item.to"
                 :name="item.name"
                 :sublevels="item.sublevels">
             </menu-item>
-            <!-- <br>
-            <router-link to="/">Home</router-link> |
-			<router-link to="/about">About</router-link> -->
+			<!-- <router-link to="/about">About</router-link> -->
         </div>
     </div>
 </template>

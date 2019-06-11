@@ -1,0 +1,14 @@
+@import "variables";
+@import "utilities";
+@import "text";
+@import "font";
+
+.order {
+    margin-top: 10px;
+}
+
+input {
+    border: 1px solid $bordergray;
+    padding: 4px 6px;
+    margin-right: 4px;
+}
