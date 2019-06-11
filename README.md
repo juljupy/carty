@@ -1,5 +1,20 @@
-# frontend
+# Carty
+The Tiny Shopping Cart using VueJS
 
+## Description
+This is a Frontend Developer Challenge.  This project is created with Vue cli.
+
+## Features
+- Filtearable Product list.
+  - By Name
+  - Availability
+  - Price range
+  - Quantity
+  
+- Persistent Shopping Cart.
+- Basic responsive design.
+- Products in Shopping Cart can be added, deleted and their quantity can be edited.
+  
 ## Project setup
 ```
 npm install
@@ -15,20 +30,7 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
-```
-
 ### Lints and fixes files
 ```
 npm run lint
 ```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
