@@ -29,6 +29,14 @@ export const shoppingcart = {
         editProduct({ commit, dispatch }, product){
             commit('modifyProduct', product)
             dispatch('loadProducts')
+        },
+
+        /*
+            Approve buy
+        */
+        approveBuy({commit, dispatch}){
+            commit('clearCart')
+            dispatch('loadProducts')
         }
     },
 
@@ -76,6 +84,14 @@ export const shoppingcart = {
             prod.quantity = product.quantity
 
             localStorage.setItem('shoppingproducts', JSON.stringify(state.shoppingproducts))
+        },
+
+        /*
+            Clear shopping cart
+        */
+        clearCart(state){
+            state.shoppingproducts = []
+            localStorage.removeItem('shoppingproducts')
         }
     },
 
