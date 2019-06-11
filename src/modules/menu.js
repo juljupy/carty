@@ -18,7 +18,20 @@ export const menu = {
         loadMenu({ commit }) {
             axios.get('data/categories.json')
                 .then( response => response)
-                .then( data => commit('setMenuitems', data.data))
+                .then( data => {
+                    let menuitems = [{
+                        id: null,
+                        name: "Home",
+                        to: "/",
+                        sublevels: {}
+                    }, ...data.data.categories, {
+                        id: null,
+                        name: "About",
+                        to: "/about",
+                        sublevels: {}
+                    }]
+                    commit('setMenuitems', menuitems)
+                })
                 .catch( error => console.log(error))
         }
     },

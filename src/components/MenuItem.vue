@@ -1,10 +1,11 @@
 <template>
     <ul class="menu-item">
         <li v-if="sublevels">
-            <router-link to="/" class="text-gray-800 font-medium">{{ name }}</router-link>
+            <router-link class="text-gray-800 font-medium" v-if="to" :to="to">{{ name }}</router-link>
+            <span class="text-gray-800 font-medium" v-else>{{ name }}{{ to }}</span>
         </li>
         <li v-else>
-           <router-link to="/" class="text-gray-600">
+           <router-link to="/products" class="text-gray-600">
                 <span @click="filterProductsBySublevel(id)">{{ name }}</span>
            </router-link>
         </li>
@@ -21,14 +22,8 @@
 <script>
     import { mapActions } from 'vuex'
     export default {
-        props: ["id", "name", "sublevels"],
+        props: ["id", "name", "sublevels", "to"],
         name: "menu-item",
-
-        data(){
-            return {
-                sublevelid: null
-            }
-        },
 
         methods: {
             ...mapActions(['filterProductsBySublevel'])

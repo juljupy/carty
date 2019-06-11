@@ -4,11 +4,12 @@
 			<h1><font-awesome-icon icon="boxes"></font-awesome-icon> Products</h1>
 			<div class="filters text-gray-800 font-medium">
 				All <input type="checkbox" v-model="filters.all" @change="checkAll(filters.all)"> | 
-				Available <input type="checkbox" v-model="filters.available" @change="checkAval(filters.available)"> | 
-				Price from: <input type="number" v-model="filters.pricefrom">
+				Available <input type="checkbox" v-model="filters.available" @change="checkAval(filters.available)" class="rounded text-sm font-medium"> | 
+				Price from: <input type="number" v-model="filters.pricefrom" class="rounded text-sm font-medium">
 				to: <input type="number" v-model="filters.priceto"> | 
-				Quantity: <input type="number" v-model="filters.quantity">
+				Quantity: <input type="number" v-model="filters.quantity" class="rounded text-sm font-medium">
 				<div class="order">
+					Search: <input type="text" class="rounded text-sm font-medium" v-model="filters.text"> | 
 					Order By:
 					<select @change="handleOrder($event)">
 						<option v-for="(opt, index) in ordering" :key="index" :value="opt.value">{{opt.text}}</option>
@@ -45,7 +46,8 @@
 					available: false,
 					pricefrom: 0,
 					priceto: 0,
-					quantity: 0
+					quantity: 0,
+					text: ''
 				},
 
 				ordering: [
@@ -81,7 +83,8 @@
 						available: false,
 						pricefrom: 0,
 						priceto: 0,
-						quantity: 0
+						quantity: 0,
+						text: ''
 					}
 				}
 			}
@@ -89,7 +92,6 @@
 
 		methods: {
             ...mapActions([
-				'loadProducts',
 				'filterProducts',
 				'orderProduct'
 			]),
@@ -111,10 +113,10 @@
 			handleOrder(event){
 				this.orderProduct(event.target.value)
 			}
-        },
-
-		mounted(){
-			this.loadProducts()
-		}
+        }
 	};
 </script>
+
+<style lang="sass" scoped>
+	@import "@/assets/sass/products.scss";
+</style>

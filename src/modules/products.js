@@ -59,7 +59,7 @@ export const products = {
         /*
             Filter products by availability
         */
-        filterProducts({ commit, state }, {all, available, pricefrom, priceto, quantity}){
+        filterProducts({ commit, state }, {all, available, pricefrom, priceto, quantity, text}){
             commit('setResetFilters', false)
             if(all && !available){
                 commit('setFilteredProducts', state.sublevelproducts)
@@ -80,6 +80,10 @@ export const products = {
 
             if(quantity >= 1){
                 commit('setFilteredProducts', state.filteredproducts.filter(prod => prod.quantity >= quantity))
+            }
+
+            if(text != ""){
+                commit('setFilteredProducts', state.filteredproducts.filter(prod => prod.name.includes(text)))
             }
         },
 
