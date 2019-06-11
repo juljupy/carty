@@ -39,7 +39,6 @@
         -webkit-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        padding: 10px;
         &:hover {
             background-color: $bggray;
         }
@@ -56,6 +55,8 @@
 
         a {
             text-decoration: none;
+            padding: 10px;
+            display: inline-block;
         }
     }
 }

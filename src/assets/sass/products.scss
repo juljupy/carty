@@ -12,3 +12,45 @@ input {
     padding: 4px 6px;
     margin-right: 4px;
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr;
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+    justify-items: stretch;
+    align-items: stretch;
+    padding-top: 10px;
+    border-top: 1px solid #d7d7d7;
+}
+
+@media (max-width: 768px) { 
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        justify-items: stretch;
+        align-items: stretch;
+    }
+
+    .filters {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 8px;
+        grid-row-gap: 8px;
+        justify-items: stretch;
+        align-items: stretch;
+    }
+}

@@ -1,17 +1,20 @@
 <template>
-    <div class="sidebar">
-        <div class="sidebarheader"></div>
+    <div class="sidebar" :class="{ 'displayblock' : show }">
+        <div class="sidebarheader shadow">
+            <font-awesome-icon icon="times" class="toggler-menu" @click="showMenu"></font-awesome-icon>
+        </div>
         <div class="menu">
             <span class="text-gray-500 menutitle">Navegación</span>
-            <!-- <router-link to="/">Home</router-link> -->
             <menu-item
                 v-for="(item, index) in getMenuitems" 
                 :key="index"
-                :to="item.to"
                 :name="item.name"
-                :sublevels="item.sublevels">
+                :to="item.to"
+                :sublevels="item.sublevels" class="border-bottom">
             </menu-item>
-			<!-- <router-link to="/about">About</router-link> -->
+            <!-- <br>
+            <router-link to="/">Home</router-link> |
+			<router-link to="/about">About</router-link> -->
         </div>
     </div>
 </template>
@@ -21,6 +24,7 @@
     import { mapGetters, mapActions } from 'vuex'
     export default {
         name: "Sidebar",
+        props: ["show"],
         components: {
             MenuItem
         },
@@ -33,7 +37,11 @@
         methods: {
             ...mapActions([
                 'loadMenu'
-            ])
+            ]),
+
+            showMenu(){
+                this.$emit('showMenu')
+            }
         },
 
         mounted(){

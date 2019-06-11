@@ -22,3 +22,10 @@
         }
     }
 }
+
+@media (max-width: 768px) { 
+    .content {
+        left:0;
+        width: 100%;
+    }
+}

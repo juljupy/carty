@@ -1,14 +1,35 @@
 @import "variables";
+@import "text";
 
 .header {
     background-color: $cleancolor;
     position: fixed;
-    width: 100%;
+    left: 200px;
+    width: calc(100% - 200px);
     padding: 10px 0px;
     z-index: 1;
 
     h2 {
         margin: 0;
         display: inline-block;
+    }
+
+    .toggler-menu{
+        position: absolute;
+        top: 16px;
+        left: 20px;
+        cursor: pointer;
+        display: none;
+    }
+}
+
+@media (max-width: 768px) { 
+    .header {
+        left:0;
+        width: 100%;
+
+        .toggler-menu{
+            display: inline-block;
+        }
     }
 }

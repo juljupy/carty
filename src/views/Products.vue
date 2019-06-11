@@ -2,14 +2,16 @@
 	<div class="page">
 		<div class="pageheader">
 			<h1><font-awesome-icon icon="boxes"></font-awesome-icon> Products</h1>
-			<div class="filters text-gray-800 font-medium">
-				All <input type="checkbox" v-model="filters.all" @change="checkAll(filters.all)"> | 
-				Available <input type="checkbox" v-model="filters.available" @change="checkAval(filters.available)" class="rounded text-sm font-medium"> | 
-				Price from: <input type="number" v-model="filters.pricefrom" class="rounded text-sm font-medium">
-				to: <input type="number" v-model="filters.priceto"> | 
-				Quantity: <input type="number" v-model="filters.quantity" class="rounded text-sm font-medium">
-				<div class="order">
-					Search: <input type="text" class="rounded text-sm font-medium" v-model="filters.text"> | 
+			<div class="filters text-gray-800 font-medium text-sm">
+				<div class="text-sm font-medium">
+					All <input type="checkbox" v-model="filters.all" @change="checkAll(filters.all)">
+					Available <input type="checkbox" v-model="filters.available" @change="checkAval(filters.available)" class="rounded text-sm font-medium">
+				</div>
+				<div>Price from: <input type="number" v-model="filters.pricefrom" class="rounded text-sm font-medium"></div>
+				<div>to: <input type="number" v-model="filters.priceto" class="rounded text-sm font-medium"></div>
+				<div>Quantity: <input type="number" v-model="filters.quantity" class="rounded text-sm font-medium"></div>
+				<div>Search: <input type="text" class="rounded text-sm font-medium" v-model="filters.text"></div>
+				<div>
 					Order By:
 					<select @change="handleOrder($event)">
 						<option v-for="(opt, index) in ordering" :key="index" :value="opt.value">{{opt.text}}</option>
@@ -17,8 +19,10 @@
 				</div>
 			</div>
 		</div>
-		<product-item v-for="prod in getFilteredProducts" :key="prod.id" :product="prod">
-		</product-item>
+		<div class="grid">
+			<product-item v-for="prod in getFilteredProducts" :key="prod.id" :product="prod">
+			</product-item>
+		</div>
 	</div>
 </template>
 

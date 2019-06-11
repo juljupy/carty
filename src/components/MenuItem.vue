@@ -1,8 +1,8 @@
 <template>
-    <ul class="menu-item">
+    <ul class="menu-item rounded">
         <li v-if="sublevels">
             <router-link class="text-gray-800 font-medium" v-if="to" :to="to">{{ name }}</router-link>
-            <span class="text-gray-800 font-medium" v-else>{{ name }}{{ to }}</span>
+            <span class="text-gray-800 font-medium" v-else>{{ name }}</span>
         </li>
         <li v-else>
            <router-link to="/products" class="text-gray-600">
@@ -32,20 +32,5 @@
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/sass/_text.scss";
-@import "@/assets/sass/_font.scss";
-
-.menu-item {
-    list-style: none !important;
-    padding-left: 20px !important;
-    cursor: pointer;
-}
-
-.menu-item li:hover {
-    opacity: 0.8;
-}
-
-a {
-    text-decoration: none;
-}
+@import "@/assets/sass/menuitem.scss";
 </style>

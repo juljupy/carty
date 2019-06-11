@@ -1,6 +1,7 @@
 <template>
     <nav class="header shadow">
-        <h2>{{ brand }}</h2>
+        <font-awesome-icon icon="bars" class="toggler-menu" @click="showMenu"></font-awesome-icon>
+        <h2 class="text-warning">{{ brand }}</h2>
         <ShoppingDropDown></ShoppingDropDown>
     </nav>
 </template>
@@ -17,6 +18,12 @@
         data(){
             return {
                 brand : "Carty"
+            }
+        },
+
+        methods: {
+            showMenu(){
+                this.$emit('showMenu')
             }
         }
     }

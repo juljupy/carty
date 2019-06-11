@@ -1,0 +1,20 @@
+@import "utilities";
+@import "text";
+@import "font";
+@import "variables";
+
+ul.menu-item {
+    list-style: none !important;
+    cursor: pointer;
+    padding: 4px 14px;
+    background-color: $cleancolor;
+    margin: 4px;
+}
+
+.menu-item li:hover {
+    opacity: 0.8;
+}
+
+a {
+    text-decoration: none;
+}
