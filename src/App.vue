@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
-		<Header></Header>
-		<Sidebar></Sidebar>
+		<Header @showMenu="showMenu"></Header>
+		<Sidebar :show="show" @showMenu="showMenu"></Sidebar>
 		<Content></Content>
 	</div>
 </template>
@@ -18,10 +18,20 @@
 			Content
 		},
 
+		data(){
+			return {
+				show: true
+			}
+		},
+
 		methods: {
 			...mapActions([
 				'loadProducts'
-			])
+			]),
+
+			showMenu(){
+				this.show = !this.show
+			}
 		},
 
 		mounted(){
