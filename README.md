@@ -33,6 +33,11 @@ npm run serve
 npm run build
 ```
 
+### Unit testing
+```
+npm run test:unit
+```
+
 ### Lints and fixes files
 ```
 npm run lint
