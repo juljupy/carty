@@ -1,6 +1,9 @@
 # Carty
 The Tiny Shopping Cart using VueJS
 
+# Demo
+http://cartyr.tk
+
 ## Description
 This is a Frontend Developer Challenge.  This project is created with Vue cli.
 
@@ -28,6 +31,11 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
+```
+
+### Unit testing
+```
+npm run test:unit
 ```
 
 ### Lints and fixes files
